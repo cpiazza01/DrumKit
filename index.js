@@ -1,57 +1,22 @@
-// document.addEventListener("click", function(event) {
-//   if (event.target.tagName==="BUTTON") {
-//     alert("I got clicked.");
-// //   }
-// });
-var myButtons = document.querySelectorAll(".drum");
-myButtons.forEach(function(elem) {
-  elem.addEventListener('click', function() {
-    makeSound(this.innerHTML);
-    buttonAnimation(this.innerHTML);
-  })
-})
-document.addEventListener("keydown", function(event) {
-  makeSound(event.key);
-  buttonAnimation(event.key);
-})
 
-function makeSound(keyOrInnerHTML) {
-  switch (keyOrInnerHTML) {
-    case "w":
-      var tom1Sound = new Audio("sounds/tom-1.mp3");
-      tom1Sound.play();
+document.addEventListener("click", function(event) {
+  switch (event.target.innerHTML) {
+    case "Don't Do It":
+      var danDies = new Audio("sounds/dan-dies.mp3");
+      danDies.play();
       break;
-    case "a":
-      var tom2Sound = new Audio("sounds/tom-2.mp3");
-      tom2Sound.play();
-      break;
-    case "s":
-      var tom3Sound = new Audio("sounds/tom-3.mp3");
-      tom3Sound.play();
-      break;
-    case "d":
-      var tom4Sound = new Audio("sounds/tom-4.mp3");
-      tom4Sound.play();
-      break;
-    case "j":
-      var snareSound = new Audio("sounds/snare.mp3");
-      snareSound.play();
-      break;
-    case "k":
-      var crashSound = new Audio("sounds/crash.mp3");
-      crashSound.play();
-      break;
-    case "l":
-      var kickBassSound = new Audio("sounds/kick-bass.mp3");
-      kickBassSound.play();
-      break;
-    default: console.log(keyOrInnerHTML);
+      case "Ow":
+        var chrisOw = new Audio("sounds/chris-ow.mp3");
+        chrisOw.play();
+        break;
+        case "Oh!":
+          var timOh = new Audio("sounds/tim-oh.mp3");
+          timOh.play();
+          break;
+          case "Don Ama Ma Did":
+            var jesusDon = new Audio("sounds/don-ama-ma-did.mp3");
+            jesusDon.play();
+            break;
+    default: console.log(event.target.innerHTML);
   }
-}
-
-function buttonAnimation(keyOrInnerHTML) {
-  document.querySelector("." + keyOrInnerHTML).classList.add("pressed");
-  setTimeout(function () {
-    document.querySelector("." + keyOrInnerHTML).classList.remove("pressed");
-  }, 100);
-}
+})
